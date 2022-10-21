@@ -45,9 +45,9 @@ let score = 0;
 
 playBtn.addEventListener('click', start);
 
-// cell.addEventListener('click', function(){
-//     cell.className
-// })
+cell.addEventListener('click', function(){
+    cell.className.add('clicked')
+})
 
 function start() {
     const cellNumbers = gridLevels[levelSelect.value];
@@ -86,7 +86,45 @@ function generateCell(cellId, cellNumbers){
 }
 
 function clickcell(){
-    console.log(this.cellId);
+    if(!bombs.includes(this.cellId)){
+        // cell.classList.add('clicked')
+        score++;
+        console.log('score');
+        const cells = document.getElementsByClassName('cell');
+        if(score === cells.length - bombNumber){
+            endGame(true);
+        }
+
+    }else{
+        endGame(false);
+    }
+}
+
+function endGame(isWin) {
+
+    let msg;
+    const cells = document.getElementsByClassName('cell');
+
+    if(isWin){
+        msg = `Hai cliccato tutte le celle giuste hai vinto`
+        console.log('Vinto');
+    }else{
+        msg = `Hai cliccato una bomba hai perso`
+        console.log('Perso');
+    }
+    showBombs();
+    
+}
+
+function showBombs(){
+    const cells = document.getElementsByClassName('cell');
+
+    for(let i = 0; i < cells.length; i++){
+        const cell = cells[i];
+        if (bombs.includes(cell.cellId)) {
+            cell.classList.aff('bomb')            
+        }
+    }
 }
 
 function generateBombs(cellNumbers){
@@ -114,4 +152,5 @@ function generateRandomNumber(min, max){
 // agg function reset per far si che al click si resetti tutto
 function reset(){
     main.innerHTML = '';
+    score = 0;
 }
