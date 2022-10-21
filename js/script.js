@@ -82,7 +82,7 @@ function generateBombs(cellNumbers){
 
     const bombsGenerated = [];
 // faccio un ciclo per creare il numero di bombe che mi serve da 1 bombnumb  che è 16
-    while(bombsGenerated.lenght < bombNumber){
+    while(bombsGenerated.length < bombNumber){
         // poi prendo i numeri ranodm generati 
         const bomb = generateRandomNumber(1, cellNumbers);
         console.log(bomb);
