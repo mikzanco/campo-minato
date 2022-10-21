@@ -35,11 +35,14 @@ const levelSelect = document.querySelector('#level');
 const main = document.querySelector('.game-wrapped');
 
 const gridLevels = [100, 81, 49];
+// numero di bombe che si vanno a generare
 const bombNumber = 16;
+let bombs = [];
 
 // al click di start mi si genera la griglia con i quadrati con i numeri.
 
 playBtn.addEventListener('click', start);
+
 function start() {
     const cellNumbers = gridLevels[levelSelect.value];
 
@@ -47,6 +50,8 @@ function start() {
 
 // vado quindi a creare la griglia èpo attraverso la function
     generatePlayGround(cellNumbers);
+    bombs = generateBombs(cellNumbers);
+    console.log(bombs);
 }
 
 // funzione per la griglia
@@ -73,6 +78,25 @@ function generateCell(cellId, cellNumbers){
     return cell;
 }
 
+function generateBombs(cellNumbers){
+
+    const bombsGenerated = [];
+// faccio un ciclo per creare il numero di bombe che mi serve da 1 bombnumb  che è 16
+    while(bombsGenerated.lenght < bombNumber){
+        // poi prendo i numeri ranodm generati 
+        const bomb = generateRandomNumber(1, cellNumbers);
+        console.log(bomb);
+        if(!bombsGenerated.includes(bomb)){
+            bombsGenerated.push(bomb);
+        }
+    }
+    
+    return bombsGenerated;
+}
+
+function generateRandomNumber(min, max){
+    return Math.floor(Math.random() * (max - min + 1)) + min;
+}
 
 
 

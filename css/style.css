@@ -40,3 +40,8 @@ main{
     background-color: rgb(27, 143, 143);
     color: white;
 }
+
+.bomb{
+    background-color: red;
+    color: white;
+}
