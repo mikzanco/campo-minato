@@ -5,6 +5,7 @@ COSA BISOGNA FARE:
 -Creare la griglia di gioco 
 -Creare i quadrati con id ed inserire i numeri
 -Genereo bombe id 
+-----------------------------------------------
 -Creare evento click
 -Evento click che genera:
 
@@ -38,10 +39,15 @@ const gridLevels = [100, 81, 49];
 // numero di bombe che si vanno a generare
 const bombNumber = 16;
 let bombs = [];
+let score = 0;
 
 // al click di start mi si genera la griglia con i quadrati con i numeri.
 
 playBtn.addEventListener('click', start);
+
+// cell.addEventListener('click', function(){
+//     cell.className
+// })
 
 function start() {
     const cellNumbers = gridLevels[levelSelect.value];
@@ -75,7 +81,12 @@ function generateCell(cellId, cellNumbers){
 
     cell.cellId = cellId;
     cell.innerHTML = `<span>${cellId}</span>`;
+    cell.addEventListener('click', clickcell);
     return cell;
+}
+
+function clickcell(){
+    console.log(this.cellId);
 }
 
 function generateBombs(cellNumbers){
