@@ -1,0 +1,42 @@
+/* .container{
+
+} */
+
+main{
+    background-color: aqua;
+    flex-grow: 1;
+}
+
+.grid{
+    width: 500px;
+    height: 500px;
+}
+
+.cell{
+    cursor: pointer;
+    display: flex;
+    float: left;
+    justify-content: center;
+    align-items: center;
+    border: 1px solid black;
+}
+
+.square100{
+    width: calc(100% / 10);
+    height: calc(100% / 10);
+}
+
+.square81{
+    width: calc(100% / 9);
+    height: calc(100% / 9);
+}
+
+.square49{
+    width: calc(100% / 7);
+    height: calc(100% / 7);
+}
+
+.clicked{
+    background-color: rgb(27, 143, 143);
+    color: white;
+}
