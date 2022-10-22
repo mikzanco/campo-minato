@@ -45,9 +45,9 @@ let score = 0;
 
 playBtn.addEventListener('click', start);
 
-cell.addEventListener('click', function(){
-    cell.className.add('clicked')
-})
+// cell.addEventListener('click', function(){
+//     cell.className.add('clicked')
+// })
 
 function start() {
     const cellNumbers = gridLevels[levelSelect.value];
@@ -86,16 +86,22 @@ function generateCell(cellId, cellNumbers){
 }
 
 function clickcell(){
+
     if(!bombs.includes(this.cellId)){
-        // cell.classList.add('clicked')
+
+
+
+        this.classList.add('clicked');
         score++;
-        console.log('score');
+        console.log(score);
         const cells = document.getElementsByClassName('cell');
         if(score === cells.length - bombNumber){
             endGame(true);
         }
 
     }else{
+
+        this.classList.add('bomb');
         endGame(false);
     }
 }
