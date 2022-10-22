@@ -86,7 +86,7 @@ function generateCell(cellId, cellNumbers){
 }
 
 function clickcell(){
-
+    // vado a vedere se ho pestato una clickato una bomba o una cella buona
     if(!bombs.includes(this.cellId)){
 
 
@@ -94,6 +94,8 @@ function clickcell(){
         this.classList.add('clicked');
         score++;
         console.log(score);
+
+
         const cells = document.getElementsByClassName('cell');
         if(score === cells.length - bombNumber){
             endGame(true);
@@ -115,9 +117,10 @@ function endGame(isWin) {
         msg = `Hai cliccato tutte le celle giuste hai vinto`
         console.log('Vinto');
     }else{
-        msg = `Hai cliccato una bomba hai perso`
-        console.log('Perso');
+        msg = `Hai cliccato una bomba hai perso, il tuo puntrggio si ferma a ${score} su ${cells.length - bombNumber} punti disponibili`
+        console.log('Perso hai fatto ${score}');
     }
+    document.querySelector('.fineGioco').innerHTML = msg;
     showBombs();
     
 }
@@ -128,7 +131,7 @@ function showBombs(){
     for(let i = 0; i < cells.length; i++){
         const cell = cells[i];
         if (bombs.includes(cell.cellId)) {
-            cell.classList.aff('bomb')            
+            cell.classList.add('bomb')            
         }
     }
 }
@@ -159,4 +162,5 @@ function generateRandomNumber(min, max){
 function reset(){
     main.innerHTML = '';
     score = 0;
+    document.querySelector('.fineGioco').innerHTML = '';
 }
