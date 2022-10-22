@@ -89,7 +89,7 @@ function clickcell(){
     // vado a vedere se ho pestato una clickato una bomba o una cella buona
     if(!bombs.includes(this.cellId)){
 
-
+        
         // accendo in questo modo la casella che è corretta
         this.classList.add('clicked');
         score++;
