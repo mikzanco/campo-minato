@@ -90,7 +90,7 @@ function clickcell(){
     if(!bombs.includes(this.cellId)){
 
 
-
+        // accendo in questo modo la casella che è corretta
         this.classList.add('clicked');
         score++;
         console.log(score);
@@ -100,7 +100,7 @@ function clickcell(){
         }
 
     }else{
-
+        // accendo in questo modo la casella che è una bomba.
         this.classList.add('bomb');
         endGame(false);
     }
